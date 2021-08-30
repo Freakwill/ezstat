@@ -16,7 +16,25 @@ The main class `Statistics` just extends `dict{str:function}` (called statistics
 
 Frankly, It just borrows the idea from the `Statistics` class of [deap](https://deap.readthedocs.io/en/master/index.html). But unlike the author of deap, I just create it a subclass of dict, need not define strange methods.
 
-See the following example and `_call`, the low level implementation.
+See the following example and function `_call`, the underlying implementation.
+
+Pseudo code of `_call`:
+```python
+    if s: str
+        f = getattr(obj, s)
+        if f: function
+            r = f()
+        else
+            r = f
+    elif s: function
+        r = s(obj)
+    elif s is number:
+        r = s
+```
+
+
+## Installation
+`pip install ezstat`
 
 ## Examples
 
